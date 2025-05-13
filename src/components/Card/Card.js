@@ -1,9 +1,9 @@
 import './Card.css';
-const Card = () => (
+const Card = (props) => (
    <div className="card">
-      <h3>Title</h3>
-      <p>apraksts</p>
-      <img />
+      <h3>{props.nosaukums}</h3>
+      <p>{props.saturs}</p>
+      <img src={props.attēls}/>
    </div>
 );
 
