@@ -14,7 +14,6 @@ function App() {
           <Card  nosaukums="Card Title 3" saturs="This is a description for the first card." attēls="https://placehold.co/250x150" />
           <Card  nosaukums="Card Title 4" saturs="This is a description for the first card." attēls="https://placehold.co/250x150" />
           <Card  nosaukums="Card Title 5" saturs="This is a description for the first card." attēls="https://placehold.co/250x150" />
-         
       </div>
     </div>
   );
