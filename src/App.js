@@ -1,5 +1,7 @@
 import Nav from  './Nav';
 import Card from  './components/Card/Card';
+import { useState } from 'react';
+
 import './App.css';
 
 
@@ -32,18 +34,30 @@ function App() {
   }
 ];
 
-  
+  const [inputValue, setInputValue] = useState("");
+  const [background, setBackground] = useState("");
 
+  
 
   return (
     <div className="App" id="test1">
     <Nav />  
       <h1 >Hello world!!!</h1>
+      <h2 >{inputValue}</h2>
+
+      <input type='text' onInput={(e)=>{
+          setInputValue(e.target.value)
+          }}/>
+
+        <button onClick={()=>{
+          setBackground("blue");
+        }}>Set blue</button>
+
       <div className='cards'>
 
           {produkti.map((item,i)=>{
               return(
-                <Card  nosaukums={item.nosaukums} saturs={item.saturs} attēls={item.attels} key={i}   />
+                <Card  nosaukums={item.nosaukums} saturs={item.saturs} attēls={item.attels} key={i}  background={background} />
               )
           })}
       </div>
