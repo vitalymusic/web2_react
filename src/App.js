@@ -1,5 +1,6 @@
 import Nav from  './Nav';
 import Card from  './components/Card/Card';
+import List from './components/List';
 import { useState } from 'react';
 
 import './App.css';
@@ -37,7 +38,7 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [background, setBackground] = useState("");
 
-  
+
 
   return (
     <div className="App" id="test1">
@@ -61,6 +62,12 @@ function App() {
               )
           })}
       </div>
+
+          {/* Ielādēsies saraksts */}
+
+
+          <List />
+
     </div>
   );
 }

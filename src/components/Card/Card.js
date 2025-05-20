@@ -36,11 +36,6 @@ const Card = (props) => {
 )
    }
 
-
-
-
-
-
 };
 
 
