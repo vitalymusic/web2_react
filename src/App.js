@@ -1,6 +1,19 @@
-import Nav from  './Nav';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Nav from  './components/Nav';
 import Card from  './components/Card/Card';
 import List from './components/List';
+// Importējam visas sadaļas
+import About from './pages/About';
+import Contacts from './pages/Contacts';
+import Main from './pages/Main';
+import Services from './pages/Services';
+// Importējam visas sadaļas
+
+
+
+
 import { useState } from 'react';
 
 import './App.css';
@@ -42,7 +55,17 @@ function App() {
 
   return (
     <div className="App" id="test1">
-    <Nav />  
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Nav />}>
+          <Route index element={<Main />} />
+          <Route path="about" element={<About />} />
+          <Route path="services" element={<Services />} />
+          <Route path="contacts" element={<Contacts />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+
       <h1 >Hello world!!!</h1>
       <h2 >{inputValue}</h2>
 
