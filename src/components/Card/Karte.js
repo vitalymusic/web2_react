@@ -6,12 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 const Karte = (props) => {
-   const [color, setColor] = useState("");
-   const [fontsize, setFontSize] = useState("1rem");
+  
    // const [background, setBackground] = useState("");
-
-
-
    return (
       <Card >
          <CardContent>

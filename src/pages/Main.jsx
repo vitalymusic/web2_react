@@ -40,7 +40,14 @@ export default function Main() {
     const [inputValue, setInputValue] = useState("");
     const [background, setBackground] = useState("");
 
+
+    let filteredItems = produkti.filter((item)=>{
+        if(item.nosaukums.toLowerCase().includes(inputValue.toLowerCase())){
+            return item
+        }
+    })
     return (
+
         <>
             <Container maxWidth="lg">
                 <Typography align="center" variant="h1">Galvenā lapa</Typography>
@@ -48,16 +55,13 @@ export default function Main() {
                 <Box sx={{
                     m:'2rem'
                 }}>
-                     <TextField id="outlined-basic" label="Ievadi produkta nosaukumu" variant="outlined" sx={{width:"100%",my:"20px"}}onInput={(e) => {
+                     <TextField id="outlined-basic" label="Ievadi produkta nosaukumu" variant="outlined" sx={{width:"100%",my:"20px"}} value={inputValue} onInput={(e) => {
                     setInputValue(e.target.value)
                 }}/>
                 </Box>
-                
-
-
+            
                 <div className='cards'>
-
-                    {produkti.map((item, i) => {
+                    {filteredItems.map((item, i) => {
                         return (
                             <Karte nosaukums={item.nosaukums} saturs={item.saturs} attēls={item.attels} key={i} background={background} />
                         )
