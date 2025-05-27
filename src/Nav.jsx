@@ -9,11 +9,11 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
-import { positions,position,top } from '@mui/system';
+import { positions, position, top } from '@mui/system';
 function Nav() {
   // Dažādas darbības
 
-  
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -25,26 +25,26 @@ function Nav() {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
-                          >
+            >
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Pirmā lapa ar React
             </Typography>
-            <Container maxWidth="sm">
-            <MenuItem>
-                  <Typography sx={{ textAlign: 'center' }}>Galvenā</Typography>
-            </MenuItem>
-            <MenuItem>
-                  <Typography sx={{ textAlign: 'center' }}>Par mums</Typography>
-            </MenuItem>
-            <MenuItem>
-                  <Typography sx={{ textAlign: 'center' }}>Pakalpojumi</Typography>
-            </MenuItem>
-            <MenuItem>
-                  <Typography sx={{ textAlign: 'center' }}>Kontakti</Typography>
-            </MenuItem>
-            </Container>
+            <Box sx={{ flexGrow: 1, display: { xs: 'block', md:'flex'} }}>
+              <MenuItem>
+                <Typography sx={{ textAlign: 'center' }}>Galvenā</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography sx={{ textAlign: 'center' }}>Par mums</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography sx={{ textAlign: 'center' }}>Pakalpojumi</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography sx={{ textAlign: 'center' }}>Kontakti</Typography>
+              </MenuItem>
+            </Box>
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
