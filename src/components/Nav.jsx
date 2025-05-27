@@ -11,7 +11,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
 import { positions, position, top } from '@mui/system';
 import { Outlet, Link } from "react-router-dom";
-
 function Nav() {
   // Dažādas darbības
   return (
@@ -31,33 +30,33 @@ function Nav() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Pirmā lapa ar React
             </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: 'block', md:'flex'} }}>
+            <Box sx={{ flexGrow: 1, display: { xs: 'block', md: 'flex' } }}>
               <MenuItem>
                 <Typography sx={{ textAlign: 'center' }}>
-                   <Link to="/">Galvenā</Link>
+                  <Link to="/">Galvenā</Link>
                 </Typography>
               </MenuItem>
               <MenuItem>
                 <Typography sx={{ textAlign: 'center' }}>
-                   <Link to="about">Par mums</Link>
-                  </Typography>
+                  <Link to="about">Par mums</Link>
+                </Typography>
               </MenuItem>
               <MenuItem>
                 <Typography sx={{ textAlign: 'center' }}>
-                    <Link to="services">Pakalpojumi</Link>
-                  </Typography>
+                  <Link to="services">Pakalpojumi</Link>
+                </Typography>
               </MenuItem>
               <MenuItem>
                 <Typography sx={{ textAlign: 'center' }}>
-                   <Link to="contacts">Kontakti</Link>
-                  </Typography>
+                  <Link to="contacts">Kontakti</Link>
+                </Typography>
               </MenuItem>
             </Box>
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
       </Box>
-       <Outlet />
+      <Outlet />
     </>
   )
 }
