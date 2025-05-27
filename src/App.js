@@ -2,6 +2,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Nav from './components/Nav';
+import Box from '@mui/material/Box';
+
 
 
 // Importējam visas sadaļas
@@ -21,12 +23,6 @@ import './App.css';
 
 function App() {
 
-
-  const [inputValue, setInputValue] = useState("");
-  const [background, setBackground] = useState("");
-
-
-
   return (
     <div className="App" id="test1">
       <BrowserRouter>
@@ -39,6 +35,15 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <Box sx={{
+        width:"100%",
+        height:"50px",
+        mt:"50px",
+        bgcolor: 'secondary.main',
+          '&:hover': {
+            bgcolor: 'secondary.dark',
+        }
+        }}/>
     </div>
   );
 }

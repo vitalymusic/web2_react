@@ -11,7 +11,30 @@ import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
 import { positions, position, top } from '@mui/system';
 import { Outlet, Link } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
+
 function Nav() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+  }
+
   // Dažādas darbības
   return (
     <>
@@ -52,13 +75,65 @@ function Nav() {
                 </Typography>
               </MenuItem>
             </Box>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit" onClick={handleClickOpen}>Login</Button>
           </Toolbar>
         </AppBar>
       </Box>
       <Outlet />
+      {/* Dialogs */}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        slotProps={{
+          paper: {
+            component: 'form',
+            onSubmit: (event) => {
+              event.preventDefault();
+              const formData = new FormData(event.currentTarget);
+              const formJson = Object.fromEntries(formData.entries());
+              const email = formJson.email;
+              console.log(email);
+              handleClose();
+            },
+          },
+        }}
+      >
+        <DialogTitle>Ielogoties</DialogTitle>
+        <DialogContent sx={{py:"20px"}}> 
+          <DialogContentText>
+            Ievadiet savu lietotājvārdu un paroli
+          </DialogContentText>
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="name"
+            name="username"
+            label="Lietotājvārds"
+            type="text"
+            fullWidth
+            variant="outlined"
+          />
+           <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="password"
+            name="password"
+            label="Parole"
+            type="password"
+            fullWidth
+            variant="outlined"
+          />
+        </DialogContent>
+        <DialogActions>
+          {/* <Button onClick={handleClose}>Cancel</Button> */}
+          <Button type="submit" variant="contained" size="large" onClick={handleSubmit}>Ielogoties</Button>
+        </DialogActions>
+      </Dialog>
     </>
   )
 }
 
 export default Nav;
+

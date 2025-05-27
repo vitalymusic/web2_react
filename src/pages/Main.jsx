@@ -38,7 +38,6 @@ export default function Main() {
     ];
 
     const [inputValue, setInputValue] = useState("");
-    const [background, setBackground] = useState("");
 
 
     let filteredItems = produkti.filter((item)=>{
@@ -59,11 +58,10 @@ export default function Main() {
                     setInputValue(e.target.value)
                 }}/>
                 </Box>
-            
                 <div className='cards'>
                     {filteredItems.map((item, i) => {
                         return (
-                            <Karte nosaukums={item.nosaukums} saturs={item.saturs} attēls={item.attels} key={i} background={background} />
+                            <Karte nosaukums={item.nosaukums} saturs={item.saturs} attēls={item.attels} key={i} />
                         )
                     })}
                 </div>
