@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import  axios from 'axios';    
 import ProductModal from '../components/AddProductModal';
+import EditProduct from '../components/EditProductModal';
+
+
 import Karte from '../components/Card/Karte';
 
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import EditProductModal from '../components/EditProductModal';
 
 
 export default function Main() {
@@ -16,6 +20,7 @@ export default function Main() {
     
     const [inputValue, setInputValue] = useState("");
     const [products, setProducts] = useState([]);
+    const [EditProductModalOpen, setEditProductModalOpen] = useState(false);
 
 
 
@@ -54,12 +59,14 @@ export default function Main() {
                 <div className='cards'>
                     {filteredItems.map((item, i) => {
                         return (
-                            <Karte nosaukums={item.nosaukums} saturs={item.apraksts} attēls={item.attels} cena={item.cena}key={i} />
+                            <Karte nosaukums={item.nosaukums} saturs={item.apraksts} attēls={item.attels} cena={item.cena}key={i} setOpen={setEditProductModalOpen}/>
                         )
                     })}
                 </div>
                 <div className="container">
                     <ProductModal />
+
+                    <EditProduct open={EditProductModalOpen}/>
                 </div>
             </Container>
         </>

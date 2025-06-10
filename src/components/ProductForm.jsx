@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Typography } from '@mui/material';
+import axios from 'axios';
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
@@ -16,11 +17,27 @@ const ProductForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const  handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Formas dati:', formData);
 
-    
+    // console.log('Formas dati:', formData);
+
+     const data = new FormData();
+      data.append('nosaukums', formData.nosaukums);
+      data.append('apraksts', formData.apraksts);
+      data.append('cena', formData.cena);
+      data.append('attels', formData.attels);
+
+     try {
+        const response = await axios.post('http://localhost:8888/web2_api/public/products/create', data);
+        console.log('Atbilde:', response.data);
+        alert('Produkts veiksmīgi pievienots!');
+    } catch (error) {
+        console.error('Kļūda:', error);
+        alert('Neizdevās pievienot produktu!');
+    }
+
+
     // Te vari sūtīt datus uz serveri ar axios/fetch
   };
 

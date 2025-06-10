@@ -26,6 +26,9 @@ const Karte = (props) => {
             image={props.attēls}
             title={props.nosaukums}
          />
+         <button data-id={props.id} onClick={()=>{
+            props.setOpen(true)
+         }}>Redigēt</button>
       </Card>
    )
 
