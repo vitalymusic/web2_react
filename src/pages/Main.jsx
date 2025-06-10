@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import  axios from 'axios';    
+
 import Karte from '../components/Card/Karte';
 
 import Container from '@mui/material/Container';
@@ -9,38 +11,28 @@ import TextField from '@mui/material/TextField';
 
 export default function Main() {
 
-    const produkti = [
-        {
-            nosaukums: "Ābolu sula",
-            saturs: "100% dabīga ābolu sula bez pievienota cukura.",
-            attels: "https://placehold.co/250x150/"
-        },
-        {
-            nosaukums: "Rudzu maize",
-            saturs: "Tradicionāla Latvijas rudzu maize, cepta krāsnī.",
-            attels: "https://placehold.co/250x150/"
-        },
-        {
-            nosaukums: "Medus burka",
-            saturs: "Bioloģiski ievākts Latvijas pļavu ziedu medus.",
-            attels: "https://placehold.co/250x150/"
-        },
-        {
-            nosaukums: "Zemeņu ievārījums",
-            saturs: "Mājās gatavots zemeņu ievārījums ar mazāk cukura.",
-            attels: "https://placehold.co/250x150/"
-        },
-        {
-            nosaukums: "Siers ar ķimenēm",
-            saturs: "Mīksts siers ar ķimenēm, ideāli der uzkodu platei.",
-            attels: "https://placehold.co/250x150/"
-        }
-    ];
+   
 
+    
     const [inputValue, setInputValue] = useState("");
+    const [products, setProducts] = useState([]);
 
 
-    let filteredItems = produkti.filter((item)=>{
+
+     useEffect(() => {
+    axios.get('http://localhost:8888/web2_api/public/products') // aizstāj ar savu URL
+      .then(response => {
+        setProducts(response.data);
+        console.log(products);
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+  }, []); 
+
+
+
+    let filteredItems = products.filter((item)=>{
         if(item.nosaukums.toLowerCase().includes(inputValue.toLowerCase())){
             return item
         }
