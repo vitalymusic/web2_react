@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import  axios from 'axios';    
-
+import ProductModal from '../components/AddProductModal';
 import Karte from '../components/Card/Karte';
 
 import Container from '@mui/material/Container';
@@ -50,12 +50,16 @@ export default function Main() {
                     setInputValue(e.target.value)
                 }}/>
                 </Box>
+
                 <div className='cards'>
                     {filteredItems.map((item, i) => {
                         return (
-                            <Karte nosaukums={item.nosaukums} saturs={item.saturs} attēls={item.attels} key={i} />
+                            <Karte nosaukums={item.nosaukums} saturs={item.apraksts} attēls={item.attels} cena={item.cena}key={i} />
                         )
                     })}
+                </div>
+                <div className="container">
+                    <ProductModal />
                 </div>
             </Container>
         </>

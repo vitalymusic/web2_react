@@ -17,6 +17,9 @@ const Karte = (props) => {
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                {props.saturs}
             </Typography>
+            <Typography variant="body2" sx={{ color: 'text.primary' }}>
+               {props.cena} &eur;
+            </Typography>
          </CardContent>
          <CardMedia
             sx={{ height: 140 }}
