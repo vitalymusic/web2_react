@@ -59,14 +59,14 @@ export default function Main() {
                 <div className='cards'>
                     {filteredItems.map((item, i) => {
                         return (
-                            <Karte nosaukums={item.nosaukums} saturs={item.apraksts} attēls={item.attels} cena={item.cena}key={i} setOpen={setEditProductModalOpen}/>
+                            <Karte nosaukums={item.nosaukums} saturs={item.apraksts} attēls={item.attels} cena={item.cena} key={i} id={item.id}/>
                         )
                     })}
                 </div>
                 <div className="container">
                     <ProductModal />
 
-                    <EditProduct open={EditProductModalOpen}/>
+                   
                 </div>
             </Container>
         </>
