@@ -42,6 +42,8 @@ const ProductForm = (props) => {
 
         console.log('Atbilde:', response.data);
         alert('Produkts veiksmīgi pievienots!');
+
+        
     } catch (error) {
         console.error('Kļūda:', error);
         alert('Neizdevās pievienot produktu!');

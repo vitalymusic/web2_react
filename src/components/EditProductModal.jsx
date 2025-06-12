@@ -78,7 +78,7 @@ export default function EditProductModal(props) {
             Pievienot produktu
           </Typography>
           {formReady?
-            <ProductForm  nosaukums={nosaukums} apraksts={apraksts} attels={attels} cena={cena} />
+            <ProductForm  nosaukums={nosaukums} apraksts={apraksts} attels={attels} cena={cena} id={id}/>
             :
             <>Loading data...</>
         }
