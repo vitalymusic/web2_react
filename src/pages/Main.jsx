@@ -22,18 +22,23 @@ export default function Main() {
     const [products, setProducts] = useState([]);
     const [EditProductModalOpen, setEditProductModalOpen] = useState(false);
 
+     const [refresh, setRefresh] = useState(false);
 
+
+        const handleRefresh = ()=>{
+            setRefresh(!refresh);
+        }
 
      useEffect(() => {
     axios.get('http://localhost:8888/web2_api/public/products') // aizstāj ar savu URL
       .then(response => {
         setProducts(response.data);
-        console.log(products);
+        // console.log(products);
       })
       .catch(err => {
         console.log(err.message);
       });
-  }, []); 
+  }, [refresh]); 
 
 
 
@@ -59,7 +64,7 @@ export default function Main() {
                 <div className='cards'>
                     {filteredItems.map((item, i) => {
                         return (
-                            <Karte nosaukums={item.nosaukums} saturs={item.apraksts} attēls={item.attels} cena={item.cena} key={i} id={item.id}/>
+                            <Karte nosaukums={item.nosaukums} saturs={item.apraksts} attēls={item.attels} cena={item.cena} key={i} id={item.id} refresh={handleRefresh}/>
                         )
                     })}
                 </div>

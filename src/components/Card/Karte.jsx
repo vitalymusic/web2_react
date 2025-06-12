@@ -46,7 +46,7 @@ let closeModal = ()=>{
          <button data-id={props.id} onClick={handleOpenModal}>Redigēt</button>
       </Card>
 
-       <EditProductModal open={openModal} setModalFunc={closeModal} productId={props.id}/>
+       <EditProductModal open={openModal} setModalFunc={closeModal} productId={props.id} mainWindowRefresh={props.refresh}/>
        </>   
    )
 

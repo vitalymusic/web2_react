@@ -17,7 +17,7 @@ const style = {
   p: 4,
 };
 
-export default function ProductModal() {
+export default function ProductModal(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -35,10 +35,8 @@ export default function ProductModal() {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Pievienot produktu
           </Typography>
-          <ProductForm />
-          <form>
-
-          </form>
+          <ProductForm closeModal={handleClose} mainWindowRefresh={props.mainWindowRefresh}/>
+         
         </Box>
       </Modal>
     </div>

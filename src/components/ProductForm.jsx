@@ -18,6 +18,25 @@ const ProductForm = (props) => {
     });
   };
 
+   let response;
+  const deleteproduct = async ()=>{
+     response = await axios.delete(`http://localhost:8888/web2_api/public/products/delete/${props.id}`)
+      .then((response)=>{
+        console.log('Atbilde:', response.data);
+        // alert('Produkts veiksmīgi dzēsts!');
+        props.mainWindowRefresh();
+        // atjaunot sarakstu
+        props.closeModal();
+        
+        
+
+       
+      })
+      
+
+  }
+
+
   const  handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -31,8 +50,9 @@ const ProductForm = (props) => {
 
      try {
       let response;
+        // return console.log(props.id);
 
-        if(props.id === ""){
+        if(props.id == undefined){
         response = await axios.post('http://localhost:8888/web2_api/public/products/create', data);
         }
         else{
@@ -42,8 +62,10 @@ const ProductForm = (props) => {
 
         console.log('Atbilde:', response.data);
         alert('Produkts veiksmīgi pievienots!');
+        props.closeModal();
+        // atjaunot sarakstu
 
-        
+
     } catch (error) {
         console.error('Kļūda:', error);
         alert('Neizdevās pievienot produktu!');
@@ -98,6 +120,12 @@ const ProductForm = (props) => {
       <Button type="submit" variant="contained" color="primary">
         Saglabāt
       </Button>
+
+      {props.id !== undefined &&
+        <Button type="button" variant="contained" color="secondary" onClick={deleteproduct}>
+        Dzēst produktu
+      </Button>
+      }
     </Box>
   );
 };
