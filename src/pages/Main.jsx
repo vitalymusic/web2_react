@@ -69,7 +69,7 @@ export default function Main() {
                     })}
                 </div>
                 <div className="container">
-                    <ProductModal />
+                    <ProductModal mainWindowRefresh={handleRefresh}/>
 
                    
                 </div>

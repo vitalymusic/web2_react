@@ -35,7 +35,7 @@ let closeModal = ()=>{
                {props.saturs}
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.primary' }}>
-               {props.cena} &eur;
+               {props.cena} &#8364;
             </Typography>
          </CardContent>
          <CardMedia

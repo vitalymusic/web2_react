@@ -27,7 +27,7 @@ const ProductForm = (props) => {
         props.mainWindowRefresh();
         // atjaunot sarakstu
         props.closeModal();
-        
+
         
 
        
@@ -62,8 +62,8 @@ const ProductForm = (props) => {
 
         console.log('Atbilde:', response.data);
         alert('Produkts veiksmīgi pievienots!');
+        props.mainWindowRefresh();
         props.closeModal();
-        // atjaunot sarakstu
 
 
     } catch (error) {
