@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { TextField, Button, Box, Typography } from '@mui/material';
 import axios from 'axios';
 
-const ProductForm = () => {
+const ProductForm = (props) => {
   const [formData, setFormData] = useState({
-    nosaukums: '',
-    apraksts: '',
-    cena: '',
-    attels: ''
+    nosaukums: props.nosaukums,
+    apraksts: props.apraksts,
+    cena: props.cena,
+    attels: props.attels,
+    id:props.id
   });
 
   const handleChange = (e) => {
@@ -29,7 +30,11 @@ const ProductForm = () => {
       data.append('attels', formData.attels);
 
      try {
+
+        
         const response = await axios.post('http://localhost:8888/web2_api/public/products/create', data);
+
+
         console.log('Atbilde:', response.data);
         alert('Produkts veiksmīgi pievienots!');
     } catch (error) {
