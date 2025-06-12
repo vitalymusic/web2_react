@@ -30,10 +30,15 @@ const ProductForm = (props) => {
       data.append('attels', formData.attels);
 
      try {
+      let response;
 
-        
-        const response = await axios.post('http://localhost:8888/web2_api/public/products/create', data);
+        if(props.id === ""){
+        response = await axios.post('http://localhost:8888/web2_api/public/products/create', data);
+        }
+        else{
+          response = await axios.post(`http://localhost:8888/web2_api/public/products/update/${props.id}`, data);
 
+        }
 
         console.log('Atbilde:', response.data);
         alert('Produkts veiksmīgi pievienots!');
