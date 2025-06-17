@@ -2,6 +2,7 @@ import React from 'react';
 import './Card.css';
 import { useState } from "react";
 import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
@@ -26,7 +27,7 @@ let closeModal = ()=>{
    // const [background, setBackground] = useState("");
    return (
       <>
-      <Card >
+      <Card sx={{width:'300px',height:'350px'}} >
          <CardContent>
             <Typography gutterBottom variant="h5" component="div">
                {props.nosaukums}
@@ -43,7 +44,7 @@ let closeModal = ()=>{
             image={props.attēls}
             title={props.nosaukums}
          />
-         <button data-id={props.id} onClick={handleOpenModal}>Redigēt</button>
+         <Button data-id={props.id} onClick={handleOpenModal} variant="contained" sx={{display: 'block', margin: 'auto',marginBottom:'10px',marginTop:'10px'}}>Redigēt</Button>
       </Card>
 
        <EditProductModal open={openModal} setModalFunc={closeModal} productId={props.id} mainWindowRefresh={props.refresh}/>

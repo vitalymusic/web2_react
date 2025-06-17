@@ -20,18 +20,18 @@ const ProductForm = (props) => {
 
    let response;
   const deleteproduct = async ()=>{
-     response = await axios.delete(`http://localhost:8888/web2_api/public/products/delete/${props.id}`)
+      if(confirm('Tiešām izdzēst?')){
+     response = await axios.delete(process.env.REACT_APP_API_URL+`/products/delete/${props.id}`)
       .then((response)=>{
         console.log('Atbilde:', response.data);
         // alert('Produkts veiksmīgi dzēsts!');
         props.mainWindowRefresh();
         // atjaunot sarakstu
         props.closeModal();
-
         
+        })
 
-       
-      })
+       }
       
 
   }
@@ -53,10 +53,10 @@ const ProductForm = (props) => {
         // return console.log(props.id);
 
         if(props.id == undefined){
-        response = await axios.post('http://localhost:8888/web2_api/public/products/create', data);
+        response = await axios.post(process.env.REACT_APP_API_URL+'/products/create', data);
         }
         else{
-          response = await axios.post(`http://localhost:8888/web2_api/public/products/update/${props.id}`, data);
+          response = await axios.post(process.env.REACT_APP_API_URL+`/products/update/${props.id}`, data);
 
         }
 

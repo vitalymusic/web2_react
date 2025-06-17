@@ -24,7 +24,7 @@ export default function ProductModal(props) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen} variant="contained">Pievienot produktu</Button>
       <Modal
         open={open}
         onClose={handleClose}
