@@ -30,7 +30,7 @@ export default function Main() {
         }
 
      useEffect(() => {
-    axios.get('http://localhost:8888/web2_api/public/products') // aizstāj ar savu URL
+    axios.get(process.env.REACT_APP_API_URL+'/products') // aizstāj ar savu URL
       .then(response => {
         setProducts(response.data);
         // console.log(products);

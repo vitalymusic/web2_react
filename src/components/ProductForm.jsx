@@ -20,8 +20,8 @@ const ProductForm = (props) => {
 
    let response;
   const deleteproduct = async ()=>{
-      if(confirm('Tiešām izdzēst?')){
-     response = await axios.delete(process.env.REACT_APP_API_URL+`/products/delete/${props.id}`)
+      if(window.confirm('Tiešām izdzēst?')){
+     response = await axios.get(process.env.REACT_APP_API_URL+`/products/delete/${props.id}`)
       .then((response)=>{
         console.log('Atbilde:', response.data);
         // alert('Produkts veiksmīgi dzēsts!');
